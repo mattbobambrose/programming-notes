@@ -1,6 +1,6 @@
 # Racket Notes
 
-'''racket
+'''lisp
 (define (every-nth-recursive mod items)
 (if (empty? items)
 '()
