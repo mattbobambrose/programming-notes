@@ -1,6 +1,6 @@
 # Racket Notes
 
-'''lisp
+```racket
 (define (every-nth-recursive mod items)
 (if (empty? items)
 '()
@@ -14,4 +14,4 @@
 
 (every-nth-recursive 3 '(10 20 30 40 50))
 (check-expect (every-nth-recursive 3 '(10 20 30 40 50)) '(10 40))
-'''
+```
