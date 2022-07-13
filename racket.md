@@ -49,4 +49,4 @@ Apply: Applies a procedure to a list or to a series of values
 (apply + 4 '(5))
 (apply sort (list (list "Hello" "everyone") <) #:key (lambda (str) (string-length str)))
 ```
-<script src="https://gist.github.com/mattbobambrose/c6f68e080cc06bd27e0e079b714e9aa3.js"></script>
+[Gist] (https://gist.github.com/mattbobambrose/c6f68e080cc06bd27e0e079b714e9aa3)
