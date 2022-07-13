@@ -15,3 +15,38 @@
 (every-nth-recursive 3 '(10 20 30 40 50))
 (check-expect (every-nth-recursive 3 '(10 20 30 40 50)) '(10 40))
 ```
+
+```racket
+(+ 4 5)
+(apply + (list 4 5))
+(call-with-values (λ () (values 4 5)) +)
+```
+
+Let vs define differences:
+
+Let allows local definitions and execution without call. 
+If it has a proc-id (procedure id), it can only be called
+recursively and not outside of definitions
+
+How to override operators:
+```racket
+(let ([+ (lambda (x y)
+             (if (string? x)
+                 (string-append x y)
+                 (+ x y)))])
+    (list (+ 1 2)
+          (+ "see" "saw")))
+```
+
+Three ways of calling function: 
+Normal: 
+```(+ 4 5)```
+Calling with values: takes a lambda and applies the values to a procedure
+```(call-with-values (lambda () (values 4 5)) +)```
+Apply: Applies a procedure to a list or to a series of values
+```racket 
+(apply + '(4 5))
+(apply + 4 '(5))
+(apply sort (list (list "Hello" "everyone") <) #:key (lambda (str) (string-length str)))
+```
+<script src="https://gist.github.com/mattbobambrose/c6f68e080cc06bd27e0e079b714e9aa3.js"></script>
