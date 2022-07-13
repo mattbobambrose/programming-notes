@@ -39,11 +39,17 @@ How to override operators:
 ```
 
 Three ways of calling function: 
-Normal: 
-```(+ 4 5)```
-Calling with values: takes a lambda and applies the values to a procedure
-```(call-with-values (lambda () (values 4 5)) +)```
-Apply: Applies a procedure to a list or to a series of values
+* Normal: 
+
+```racket 
+(+ 4 5)
+```
+* Calling with values: takes a lambda and applies the values to a procedure
+
+```racket
+(call-with-values (lambda () (values 4 5)) +)
+```
+* Apply: Applies a procedure to a list or to a series of values
 ```racket 
 (apply + '(4 5))
 (apply + 4 '(5))
