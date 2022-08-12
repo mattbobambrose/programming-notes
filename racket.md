@@ -55,8 +55,26 @@ Three ways of calling function:
 (apply + 4 '(5))
 (apply sort (list (list "Hello" "everyone") <) #:key (lambda (str) (string-length str)))
 ```
+
+List* and append* are the same as apply func respectively.
+
 [Gist](https://gist.github.com/mattbobambrose/c6f68e080cc06bd27e0e079b714e9aa3)
 
 Curry vs curryr
 * Curry evaluates functions left to right and curryr evaluates functions right to left. 
 * It does not change the ordering of the arguments unless they are at different levels of evaluation.
+
+Local
+It is absolutely necessary when defining within a function.
+```racket
+(define (is-palindrome str)
+  (local
+    {(define (end-index str) (- (string-length str) 1))}
+  (cond
+    [(<= (string-length str) 1) #t]
+    [(not (char=? (string-ref str 0) (string-ref str (end-index str)))) #f]
+    [else (is-palindrome (substring str 1 (end-index str)))]
+    )
+  ))
+
+
